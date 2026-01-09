@@ -1,0 +1,17 @@
+		Notes
+		
+Course Intro
+	We are preparing for the Cloud Practitioner exam - CLF-C02
+
+
+Creating an AWS account
+
+
+
+AWS account activation troubleshooting
+
+
+Important Message
+
+
+About your instructor
