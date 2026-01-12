@@ -1,0 +1,145 @@
+        Notes Section 3 What is cloud computing 
+
+Traditional IT Overview
+    How websites work
+        Client -> Network -> Server 
+        Client and Server both find each other via there IP address
+    What is in a server 
+        CPU -> computations, processing 
+        Memory -> RAM store info quickly 
+            CPU and Memory together make a brain 
+        Storage -> Long term storage, files 
+        Database -> Store data in a more structured way, access via queries 
+        Network -> Routers, switch, DNS server 
+
+    IT Terminology 
+        Network: cables, routers and servers connecgted with each other 
+        Router: networking device that forwards data packets between computer networks. They know where to send your packets on the internet
+        Switch: Takes a packet and send it to the correct server / client on your network 
+
+    Traditional infrastructure 
+        We host webserver at our house in our garage 
+        We have more demand for our website so we add more servers in our home 
+        Company has more demand so we move to an office and create special room for servers called a data center 
+            We scale by purchasing more and more servers 
+
+    Problems with traditional IT approach 
+        Pay for the rent for the data center 
+        Pay for power, cooling and maintainance 
+        Add or replace hardware takes time 
+        Scaling is limited 
+        Hire 24/7 team
+        How to deal with disaster 
+
+        We can externalize this with the cloud. 
+
+What is cloud computing
+
+    Cloud computing is the on-demand delivery of compute power, database storage, applications and other IT resources 
+    Through cloud service platform you get pay-as-you-go pricing 
+    You can provision exactly the right type and size of computing resources you need 
+    You can access as many resources as you need instantly
+    Good gui to access services 
+
+    Deployment Models of the Cloud
+        Private Cloud
+            Cloud services used by a single organization not exposed to the public
+            Complete control
+            Meet specific business needs
+        Public Cloud
+            Providers -> Azure, Google cloud, AWS 
+            Cloud resources owned and operated by 3rd party cloud service provider delivered over the internet 
+        Hybrid Cloud
+            Keep some server on premises and extedn capabiliteis to the cloud 
+            Control over private infrastructure 
+            Flexible cost-effectiveness 
+
+    Characteristics of Cloud Computing 
+        On-demand self service
+        Broad network access 
+        Multi-tenancy and resource pooling 
+        Rapid elasticity and scalability 
+        Measured service 
+
+    Advantages of Cloud Computing 
+        Trade capital expense for operational expense
+            Dont own hardware, pay on demand 
+            Reduce total cost of ownership and operational expense  
+        Benefit from massive economies of scale
+            Prices reduced as AWS gets bigger because they become more efficient 
+        Stop guessing capacity
+            Scale based on actual usage 
+        Increase speed and agility 
+        Stop spending money running and maintaining data centers 
+        Go global in minutes: leverage the AWS global infrastructure
+
+
+The different types of cloud computing
+    Infrastructure as a Service (IaaS)
+        Provide building blocks for cloud IT 
+        Provide networking computers, data storage space
+        Highest level of flexibility 
+        Easy parallel with on premis IT 
+    Platform as a Service (PaaS)
+        Remove teh need for org to manage underlying infrastructure
+        Focus on the deployment and management of your applications 
+    Software as a Service (SaaS)
+        Completed product that is run and managed by the service provider 
+
+    Things to manage: Applications, Data, Runtime, Middleware, O/S, Virtualization, Servers, Storage, Networking 
+
+    On-premises -> Everything is managed by you 
+    IaaS -> You manage: Applications, Data, Runtime, Middleware, OS 
+    PaaS -> You manage: Applications, Data
+    SaaS -> you manage: Nothing
+
+    IaaS -> Amazon EC2
+    PaaS -> Elastic Beanstalk
+    SaaS -> Many Rekognition for machine learning 
+
+    Pricing Model 
+        AWS has 3 pricing fundamentals following the pay as you go pricing 
+        Compute:
+            Pay for compute time
+        Storage:
+            Pay for the data stored in the cloud
+        Data transfer OUT of the Cloud:
+            Data transfer in is free
+
+
+AWS Cloud Overview 
+    AWS is Global 
+        Region 
+        Avalability Zone 
+            ap-southeast-2a 2b 2c 
+        Local Zone 
+        Points of Presence (Edge Locations)
+            Content delivered with low latency 
+
+    AWS has global services 
+    Most AWS services are Region-scoped
+    Region table
+    
+
+AWS Console UI update 
+    New colors and buttons
+
+Tour of the Console and Services 
+
+
+Shared Responsibility Model and AWS Acceptable Policy
+
+    Customer
+        Responsible for the security in the Cloud
+        However you configure it (security application networking)
+    AWS 
+        Responsible for the security of the cloud 
+        Internal security 
+
+    AWS Acceptable Use policy 
+        No illegal harmful use or content 
+        No security violations 
+        No Network Abuse 
+        No email abuse 
+
+ Quiz 1
