@@ -20,3 +20,47 @@ Users and Groups Hands on
         acct id -> aws-nikko
         name -> Nikko 
         pw -> userNikko1u42380028384082
+
+Multi Session Support
+    Click User Name (top right)
+        Select Turn on multi session Support
+
+IAM Policies 
+    Policies get attached at the group level
+    Users inhert access from groups 
+    Inline policy is a policy only attached to the user 
+
+    Policy Structure
+        Note: * in AWS mean any/all  (Get*, List*)
+        JSON documents 
+            Version #
+            ID 
+            Statement (required)
+                SID -> identifier for the statement (optioanl, "1")
+                Effect: Whether the statement allow or deny access ("Allow")
+                Principal: account/user/role 
+                Action: List of actions this policy allows or denies
+                Resource: list of resources to which the action s applied to 
+                Condition: Condition on when this policy is in effect (optional)
+
+    MFA Overview 
+        Password Policy     
+            Strong passwords -> higher security for your account 
+            In AWS you can setup a password policy   
+                Min len, lower case letter
+                Change after 90 days 
+                Prevent reuse 
+            Multi Factor Authentication MFA
+                You want to protect root account and IAM Users
+                MFA = password you know + security device you own
+            MFA device options in AWS 
+                Virtual MFA device (Google Auth, Authy)
+                Universal 2nd Factor (U2F) Security Key
+
+    MFA Hands On 
+        You download and sign up with a MFA app on your iPhone. 
+        When you login to AWS you check the code on the app and then you can enter that into the AWS site and login.
+        Similar to 2FA with a text just done via an app 
+
+    AWS Access Keys, CLI and SDK 
+        
