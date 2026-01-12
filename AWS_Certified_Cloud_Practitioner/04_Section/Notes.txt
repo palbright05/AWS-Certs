@@ -1,0 +1,22 @@
+    Notes Section 4 IAM - Identity and Access Management 
+
+Introduction
+    IAM (Users & Groups) -> Identity and Access Management 
+        Global Service
+        Create User and assign to group
+        When we create an account we create root User
+        Create users and groups -> Groups only contain users not other groups 
+        User can belong to multiple groups 
+
+    Why do we create users and groups 
+        We want to allow certain access (permissions)
+        Users or Groups can be assigned JSON documents called policies 
+        These policies define permissions of the users 
+        In AWS we apply the least priveledge prinicple: dont give more permission that a user needs 
+
+Users and Groups Hands on 
+    Tags -> allow you to give meta data 
+    Can log in with IAM user
+        acct id -> aws-nikko
+        name -> Nikko 
+        pw -> userNikko1u42380028384082
