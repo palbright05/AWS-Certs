@@ -87,9 +87,56 @@ EC2 Instance Types Basics
                 Use cases: High freq online transaction, Distributed file-systems, Data warehousing applications 
 
 Security Groups & Classic Ports Overview 
+    Introduction to Security Groups (Firewall)
+        Security groups are the fundamental of network security in AWS
+        They control how traffic is allowed into or out of our EC2 instances
+            www ----> [Sec Group [EC2 Instance]  ]
+                We want to access EC2 instance from home (www)
+                We create a securtiy group around EC2 instance
+                    Securtiy group has rule on inbound and outbound traffic 
+
+        Security groups only conatain allow rules 
+        Security groups rules can reference by IP or by security group 
+    Security Group Deeper Dive 
+        Act as firewall on EC2 instances 
+        They regulate:
+            Access Ports
+            Authorized IP ranges IPv4 and IPv6 
+            Control of inbound network (from other to the instance)
+            Control of outbound network (from the instance to other)
+    Good to Know 
+        Can be attached to multiple instances 
+        Locked down to a region /VPC combination 
+        The security group lives outside the EC2 Instance     --->{Sec Group   [EC2 instance] }<----
+            If the traffic is blocked the EC2 instance wont see it 
+        Its good to maintain one seperate securtiy group for SSH access 
+        If your application is not accessible, its a sec group issue
+        If your application gives a "connection refused" error then its an application error or its not launched
+        All inbound traffic is blocked by default 
+        All outbound traffic is authorized by default 
+    Classic Ports to Know
+        22 =  SSH (Secure Shell) log into a Linux instance 
+        21 = FTP (File Transfer Protocol) upload files into a file share 
+        22 = SFTP (Secure File Transfer Protocol) upload files using ssh 
+        80 = HTTP access unsecured websites 
+        443 = HTTPS access secured websites 
+        3389 = RDP (Remote Desktop Protocol) - log into a Windows instance 
+
 Securtiy Groups Hands On
+    On the left tab go to Networking and Security Groups 
+
 SSH Overview 
+    EC2 Instance connect can remote into an instance from web browser
+        Platform agnostic 
+
 SSH on Linux
+    Change permissions of the key.pem file  
+        chmod 0400 key.pem 
+    ssh -i <pathOfKey>/<key_name>.pem ec2-user@<ec2_ip>
+        You are now logged into the instance 
+    To exit
+        exit or Ctrl-d 
+
 SSH Troubleshooting 
 EC2 Instance Connect
 EC2 Instance Roles Demo
