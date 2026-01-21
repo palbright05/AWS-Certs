@@ -1,0 +1,16 @@
+        Section 5 EC2 Elastic Compute Cloud
+
+AWS Budget Setup
+EC2 Basics
+Create an EC2 Instance
+EC2 Instance Types Basics 
+Security Groups & Classic Ports Overview 
+Securtiy Groups Hands On
+SSH Overview 
+SSH on Linux
+SSH Troubleshooting 
+EC2 Instance Connect
+EC2 Instance Roles Demo
+EC2 Instance Purchasing Options
+Shared Responsibility Model for EC2
+EC2 Summary 

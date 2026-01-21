@@ -19,7 +19,7 @@ Users and Groups Hands on
     Can log in with IAM user
         acct id -> aws-nikko
         name -> Nikko 
-        pw -> userNikko1u42380028384082
+        pw -> userNikko1
 
 Multi Session Support
     Click User Name (top right)
@@ -63,4 +63,108 @@ IAM Policies
         Similar to 2FA with a text just done via an app 
 
     AWS Access Keys, CLI and SDK 
+        How can users access AWS 
+            AWS Management Console (password + MFA) 
+            AWS Command Line Interface (access keys)
+            AWS Software Development Kit (SDK) (access keys)
+        Access keys are generated through teh AWS console
+        Users manage own access keys
+        Access keys are secret like a password
+            Access key ID ~= username 
+            Secret Access Key ~= pasword 
+        What is AWS CLI 
+            tool that allows you to interact with AWS services using command line shell 
+            direct access to public apis of aws services 
+            develop scripts 
+        What is the AWS SDK
+            Language specific APIs (set of libraries)
+            Access and manage AWS services programmatically
+            Embedded within your application 
+            Supports
+                Javascript python ruby  Google
+                Mobile SDK
+            Example: AWS cli is built on AWS SDK for python
+
+    AWS CLI setup on Linux 
+        Google aws cli install version 2
+
+    AWS CLI Hands on 
+        How to create access keys 
+            Login to IAM user 
+            Click user name
+            Click on Security Credentials
+            Click create access key 
+                Click CLI 
+                Create Access Keys
+        Login to AWS 
+            @cli:   aws configure
+            acc key: []
+            sec key: []
+            region: us-west-1
+            output: <press enter>
+        Run commands
+            aws iam list-users 
+
+    AWS CloudShell
+        Alternative to issuing commands to AWS 
+        It's a terminal in the cloud of AWS 
+        Only available in some regions
+        Has upload and download feature
+        
+    IAM Roles for AWS Services
+        Some AWS services will need to perform actions on your behalf 
+        To do this we will assign permissions to AWS services with IAM Roles 
+            Just like a user role 
+        Ex: We may want to create an EC2 instance(virtual server)
+            The EC2 instance may want to perform some action on aws 
+                It needs to have permissions to do that 
+                We give it an IAM Role 
+        Common Roles:
+            EC2 Instance Roles
+            Lambda function roles 
+            Cloudformation
+
+    IAM Roles Hands on 
+        A Role is a way to give AWS entities permissions to do stuff on AWS 
+        We give an AWS entity a role so that it has a level of permissions to do stuff 
+        
+    IAM Security Tool 
+        IAM Credential Report (account level)
+            A report that lists all your accounts users and the status of thier various credential 
+        IAM Access advisor (user-level)
+            Access advisro shows the service permissions granted to a user and when those services were last accessed 
+            You can use this information to revise your policies 
+              
+    IAM Security Tools Hands on 
+        Generate a credentials report 
+        
+    IAM Best Practices 
+        Dont use root account except for AWS account setup 
+        One physical user = One AWS user 
+        Assign users to groups and assign permissions to groups 
+        Create a strong password policy 
+        Use and enforce the use of MFA 
+        Create Roles for giving permissions to AWS services 
+        Use Access keys for programmatic access (CLI/SDK)
+        Audit permissions of your account using IAM Credentials Report & IAM Access Advisor 
+        Never share IAM users and access keys 
+
+    Shared Responsibility Model for IAM 
+        What AWS is responsible for and what you are responsible for 
+        AWS (Infra)
+            Infrastructure
+            Configuration
+            Compliance 
+        You (How you use the Infra)
+            Users, Groups, Roles, Policies 
+            Enable MFA 
+            Rotate your keys often 
+            Use IAM tools to apply proper permissions 
+            Analyze access patterns & review permissions 
+
+    IAM Summary 
+        Users mapped to physical user 
+        Groups contain users only 
+        Policies -> JSON doc that outlines permissions 
+        Roles for EC2 Instances or aws services 
         
