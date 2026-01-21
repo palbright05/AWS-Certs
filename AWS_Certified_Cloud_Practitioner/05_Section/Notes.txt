@@ -1,9 +1,91 @@
         Section 5 EC2 Elastic Compute Cloud
 
 AWS Budget Setup
+    Billing and Cost management 
+        Must be run from root account
+        IAM user and role access to Billing Information
+            This will allow user to access billing info
+        Free Tier lets you see services that are free but might cost you money eventually
+        Budgets -> create a budget that will alert you when you hit a threshold
+            Template - Zero spend budget will notify you when you are going to spend 0.01 cents 
+
 EC2 Basics
+    Amazon EC2 
+        EC2 is one of the most popular AWS offering
+        EC2 = Elastic Compute Cloud = Infrastructure as a Service IaaS
+        Consists in the capability of:
+            Renting virtual machines (EC2)
+            Storing data on virtual drives (EBS)
+            Distributing load acrss machines (ELB)
+            Scaling the services using an auto-scaling-group (ASG)
+        Knowing EC2 is fundamental to understand how the cloud works
+    EC2 Sizing & configuration options 
+        OS choices: Linux, Windows, Mac OS 
+        How much compute power and cores (CPU)
+        How much random access memory (RAM)
+        How much storage space:
+            Network attached (EBS and EFS)
+            Hardware (EC2 Instance Store)
+        Network Card: speed of the card , public IP address
+        Firewall rules: security gap
+        Bootstrap script (configure at first launch): EC2  User Data 
+    EC2 User Data:
+        It is possible to bootstrap our instances using an EC2 User data script
+        Bootstrapping mean launching commands when a machine starts
+        That script is only run once at the instance first start 
+        EC2 user data is used to automate boot tasks such as:
+            Installing updates
+            Installing software
+            Downloading common files from the internet 
+            Anything you can think of 
+        The EC2 User Data script runs with the root user. (runs with sudo)
+
 Create an EC2 Instance
-EC2 Instance Types Basics 
+    Launch first virtual server running Linux 
+    Launch web server on EC2 instance 
+    Start/Stop instance 
+        EC2 Console -> instances -> launch instance 
+            Name -> My first instance 
+            Choose OS or base image (Amazon Linux 2 AMI)
+            Instance type -> cpu, memory, cost (t2 micro free tier) 
+            key pair -> to login to instance ssh (EC2 tutorial) RSA
+            Network settings -> public IP enable 
+            Security Group (firewall)-> Add security rules
+                allow ssh traffic anywhere 
+                allow http traffic from the internet (webserver)
+            Storage 8GiB -> gp2 root volume 
+                delete on termination -> once we delete instance vlume will be deleted 
+            Advanced details
+                User data info -> pass script to execute on firts launch (bash scripting)
+            Summary -> start 1 instance 
+            Launch the instance 
+        If you stop an instance and then start the public IP maybe changed 
+    To use SSH key
+        Download the ssh key for the instance
+        Put the key in the /home/.ssh/ folder
+        Run the command:
+            ssh -i ~/.ssh/<key_file_name> <user-name (ec2-user)>@<public-ip>
+
+EC2 Instance Types Basics
+    You can use different types of EC2 instances that are optimized for differernt use cases:
+    AWS has the name convention: m5.2XLarge
+        m: instance class (general purpose)
+        5: generation (AWS improves them over time)
+        2xl : size within the instance class     
+    Types:
+        General purpose 
+            Great for diversity of workloads (webservers, code repo)
+                Balance between compute, memory, networking (t2)
+        Compute Optimized (c5,c6)
+            Great for compute intensive tasks that require high performance processors
+                Ex: batch processing, media transcoding, high performance web server, machine learning, gaming servers
+        Memory (RAM) Optimized (r , x)
+            Fast performance for workloads that process large data set in memory
+            Use cases: High performance database, Distributed web scale cache stores, In-memory database, rt-processing of big data  
+        Storage Optimized 
+            Great for storage intensive tasks that require high sequential read and write access to large data sets on local storage
+                Use cases: High freq online transaction, Distributed file-systems, Data warehousing applications 
+
 Security Groups & Classic Ports Overview 
 Securtiy Groups Hands On
 SSH Overview 
