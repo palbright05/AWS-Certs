@@ -188,5 +188,24 @@ EC2 Instance Purchasing Options
 
 
 Shared Responsibility Model for EC2
+    AWS
+        Infrastructure (global network security)
+        Isolation on physical hosts 
+        Replacing faulty hardware 
+        Compliance validation
+    You
+        Security groups rules
+        Operating sytem patches and updates 
+        Software and utilities installed on teh EC2 instance 
+        IAM Roles assigned to EC2  & IAM user access management 
+        Data security on your instance
 
 EC2 Summary 
+    EC2 instances
+        AMI(OS) + Instance size (CPU + RAM) + Storage + security groups + EC2 User data 
+    Security groups: Firewall attached to EC2 instance 
+    EC2 User Data: Script launched at the first start of an instance 
+    SSH : start a terminal into our EC2 instance
+    EC2 Instance Role: Link to IAM roles 
+    Purchasing Options: On-Demand, Spot, Reserved (Standard + Concertible), Dedicated host, Dedicated instance 
+    
