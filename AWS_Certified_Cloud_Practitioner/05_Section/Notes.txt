@@ -138,8 +138,55 @@ SSH on Linux
         exit or Ctrl-d 
 
 SSH Troubleshooting 
+
 EC2 Instance Connect
+    While in the instance window 
+        Click connect 
+        Use default EC2 Instance Connect option 
+
 EC2 Instance Roles Demo
+    Never enter your access ID or key into an EC2 instance 
+        Someone could remote into the instance and then retrieve your info 
+
 EC2 Instance Purchasing Options
+    On-Demand Instances -> short workload, predictable pricing, pay by second
+    Reserved (1&3 years)
+        Reserved instances - long workloads 
+        Convertible reserved instances - long workloads with flexible instances
+    Savings Plans (1&3 years) - commitment to an amount of usage, long workload 
+    Spot Instances - short workloads, cheap, can lose instances (less reliable)
+    Dedicated Hosts - book an entire physical server, control instance placement
+    Dedicated Instances - no other customers will share our hardware
+
+    EC2 On Demand
+        Pay for what you use:
+            Linux or Windows - billing per second after first minute 
+            All other operating systems - billing per hour
+        Has the highest cost but no upfront payment 
+        No long term commitment 
+        Recommended for short term and un-interrupted workloads
+
+    EC2 Reserved Instances
+        Up to 72% discount compared to on demand 
+        You reserve a specific instance attributes (Instance type, Region, Tenancy, OS)
+        Reservation period  1 yr or 3 yr 
+        Payment options - no upfront, partial upfront, all upfront
+        Reserved Instances Scope - Regional or Zonal (reserve capacity in an AZ)
+        Recommended for steady state usage appications (database)
+        You can buy and sell in the Reserved Instance Marketplace 
+
+        Convertible Reserved Instance 
+            Can change instance type, family, OS 
+
+    EC2 Savings Plan 
+        Get a discou
+
+    EC2 Spot Instances
+    EC2 Dedicated Instances
+    EC2 Capacity Reservations
+    Which purchasing option is right for me?
+
+
 Shared Responsibility Model for EC2
+
 EC2 Summary 
