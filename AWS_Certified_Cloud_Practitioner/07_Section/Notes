@@ -1,0 +1,111 @@
+        Section 7 Elastic load balancing & Auto Scaling Groups 
+
+High Availability, Scalability Elasticity
+    Scalability and High Availability
+        Scalability means that an application/system can handle greater loads by adapting 
+        There are two kinds of scalability:
+            Vertical scalability 
+            Horizontal scalability (=elasticity)
+        Scalability is linked but different to High Availability 
+        Example: Call Center
+
+    Vertical Scalability
+        Vertical Scalability means increasing the size of the instance (upgrade a junior operator to senior operator)
+        If application runs on a t2.micro 
+            Scaling the application vertically means running it on a t2.large 
+        Vertical scalability is very common for non distributed systems such as database
+        Theres ususally a limit to how much you can vertical scale (hw limit)
+        
+    Horizontal Scalability
+        Horizontal scalability means increasing teh number of instances /systems for your application (scale from one operator to multiple operator)
+        Implies distributed systems 
+        Very common for web applications /modern applications 
+        Its easy to horizontally scale thanks to cloud offerings such as Amazon EC2
+
+    High Availability
+        Goes hand in hand with horizontal scaling 
+        Running application / system in at least 2 Availability Zones (Two call centers one in NY other in CA. If one goes down can use the other)
+        The goal of high availability is to survive a data center loss (disaster)
+
+    High Availability & Scalability for EC2
+        Vertical Scaling
+            Increase instance size (= scale up/down)
+                From: t2.nano - 0.5H of RAM, 1 vCPU
+                To: u-12tb1.metal - 12.3TB of RAM, 448vCPUs
+        Horizontal Scaling
+            Increase number of instances (=scale out/in)
+            Auto Scaling Group
+            Load Balancer
+        High Availability
+            Run instances for the same application across multi AZ 
+                Auto Scaling Group multi AZ 
+                Load Balancer multi AZ
+    
+    Scalability vs Elasticity (vs Agility)
+        Scalability -> ability to accomodate a larger load by making the hardware stronger (scale up / vertical) or by adding more nodes (scale out / horizontal)
+        Elasticity -> once a system is scalable, elasticity means that there will be some "auto-scaling" so that the system can scale based on the load. 
+                        This is cloud-friendly: pay per use match demand optimize cost
+        Agility (not related to scalability -distractor) -> new IT resources are only a click away, which means that you reduce time to make those resources available to your developers from weeks to just minutes.
+
+
+Elastic Load Balancing Overview (ELB)
+    What is load balancing
+        Load balancers are servers that forward internet traffic to multiple servers (EC2 instances) downstream    User1 -> [Load Balancer] -> EC2_inst1
+                                                                                                                   User2 -> [Load Balancer] -> EC2_inst2
+    Why use a load balancer 
+        Spread load across multiple downstream instances 
+        Expose a single point of access (DNS) to your appication 
+        Seamlessly handle failures of downstream instances 
+        Do regular health checks to your instances 
+        Provide SSL termination (HTTPS) for your websites 
+        High availability across zones
+    
+    Why use an Elastic Load Balancer?
+        An ELB is a managed load balancer
+            AWS guarantees that it will be working 
+            AWS takes care of upgrades maint high availability
+            AWS provides only a few configuration knobs
+        It costs less to setup your own load balancer but it will be a lot more effort on our end (maint and integration)
+        4 kinds of load balancers offerd by AWS:
+            Application load balancer (HTTP/s only) layer 7 (ALB)
+                HTTP / HTTPS gRPC
+                HTTP Routing features
+                Static DNS (URL)
+                Arch:   user -> [ALB] -> multi EC2
+            Network Load balancer (ultra-high performance allows tcp) layer 4 (NLB)
+                TCP/UDP protocols
+                High perf: millions of requests per second
+                Static IP through Elastic IP
+                Arch: users -> [NLB] -> multi EC2
+            Gateway load balancer - layer 3 (GWLB)
+                GENEVE Protocol on IP packets (layer 3)
+                Route Traffic to firewalls that you manage on EC2 instances 
+                Intrusion detection 
+                Arch: Users -> [GWLB] -> (3rd party security) -> [GWLB] -> Application / EC2
+            Classic load balancer (retired) - Layer 4 & 7
+        
+
+
+Application Load Balancer (ALB) Hands On
+
+
+Auto Scaling Groups (ASG) Hands On
+    Whats an Auto Scaling Group
+        In real life the load on your websites and application can change
+        In the cloud you can create and get rid of servers very quickly
+        The goal of an Auto Scaling Group is to:
+            Scale out (add EC2 instances) to match an increased load 
+            Scal in (remove EC2 inst) to match a decreased load
+            Ensure we have a minimum and maximum number of machines running 
+            Automatically register new instances to a load balancer 
+            Replace unhealthy instances 
+        Cost savings: only run at an optimal capacity (principle of the cloud)
+
+Auto Scaling Groups Strategies 
+
+
+Section Clean up 
+
+
+ELB & ASG Summary 
+
