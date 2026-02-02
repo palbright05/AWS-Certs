@@ -26,37 +26,190 @@ S3 Security: Bucket Policy Hands On
 
 S3 Website Overview 
 
+S3 Versioning Overview
+    Versioning
+         You can version your files in Amazon S3
+         It is enabled at the bucket level
+         Same key overwrite will change the "version": 1,2,3
+         It is best practice to version your buckets
+            Protect against unintended deletes (ability to restore a version)
+            Easy to roll back to previous version 
+        Notes
+            Any file that is not versioned prior to enabling versioning will have version "null"
+            Suspending versioning does not delet the previous versions
+
 
 S3 Versioning Hands On 
+    Bucket level properties -> Bucket Versioning -> edit -> enable
 
 S3 Replication Overview 
+    Replication (CRR & SRR) ---> send data from one bucket to another 
+        Must enable versioning in source and destination 
+        Cross-Region Replication (CRR)
+        Same-Region Replication (SRR)
+        Buckets can be in different AWS accounts
+        Copying is asynchronous (happens in the background)
+        Must give proper IAM permissions to S3
+        
+        Use cases: 
+            CRR - compliance, lower latency access, replication across accounts
+            SRR - log aggregation, live replication, between production and test accounts
+
 
 S3 Replication Hands On
+    In the origin bucket -> Management -> Repication rules -> create replication rule
+    Create IAM role for this
 
-3 Storage Classes Overview 
+S3 Storage Classes Overview 
+    Storage Classes
+        Amazon S3 Standard - General Purpose
+            99.99% Availability
+            Used for frequently accessed data
+            Low latency and high throughput
+            Use cases: Big Data analytics, mobile gaming applications, content distribution
 
+        Amazon S3 Standard-Infrequent Access (IA)
+            For data that is less frequently accessed but requires rapid access  when needed
+            Lower cost than S3
+
+            Amazon S3 Standard-Infrequent Access (IA)
+                99.9% Availability
+                Use case: Disaster Recovery, backups
+            
+            Amazon S3 One Zone-Infrequent Access
+                High durability (99.9999999%) in a single AZ; data lost when AZ is destroyed
+                99.5% Availability
+                Use case: Storing secondary backup copies of on prem data, or data you can recreate
+        
+        Glacier Storage Classes
+            Low-cost object storage meant for archiving / backup
+            Pricing: price for storage + object retrieval cost
+
+            Amazon S3 Glacier Instant Retrieval
+                Millisecond retrieval great for data accessed once a quarter
+                Min storage duration 90 days
+            Amazon S3 Glacier Flexible Retrieval
+                Expedited (1 to 5 mins) standard (3 to 5 hrs) bulk (5 to 12  hours) free
+                Min storage duration of 90 days
+            Amazon S3 Glacier Deep Archive
+                Standard (12 hours), bulk (48 hours)
+
+            Amazon S3 Intelligent Tiering
+                Small monthly monitoring and auto-tiering fee
+                Moves objects automatifcally between Access Tiers based on usage
+                There are no retrieval charges in S3 Intelligent Tiering
+
+        Can move between classes manually or using S3 Lifecycle configurations
+    
+    Durability and Availability
+        Durability
+            High durability of objects across multiple AZ
+            If you store 10e6 objects with amazon S3 you can expect to incur a loss of a single object once every 10k years
+            Same for all storage classes
+        Availability
+            Measures how readily available a service is
+            Varies depending on storage class 
+            S3 standard not available 53 mins a year
+        
 S3 Storage Classes Hands On 
-
-
+    Can change storage class for an object
+        Properties -> storage class 
+        
 S3 Express One Zone
+    High performance single Availability Zone storage class
+    Objects stored in a Directory Bucket (bucket in single AZ)
+    Handle 100k request per second with single digit ms latency
+    Up to 10x better perf than S3 standard (50% lower cost)
+    High Durability (99.9999999) and Availability (99.95)
+    Co-locate your storage and compute resources in the same AZ (reduce latency)
+    Use case: latency sensity apps, data-intensive apps, AI & ML training
+
 
 S3 Encryption 
+    Server Side Encryption (default)
+        User uploads doc to the server and the server encrypts it
+    Client Side Encryption
+        User encrypts the file before sending it to the server
+
 
 IAM Access Analyzer for S3
-
+    Ensures that only inteded people have access to your S3 buckets
+    Ex: publicly accessible bucket, bucket shared with other AWS account
+    Evaluates S3 Bucket Policies, S3 ACL, S3 Access Point Policies
+    Powered by IAM Access Analyzer
 
 Shared Responsibility Model for S3
-
+    AWS
+        Infrastructure()
+        Configuration and vulnerability analysis
+        Compliance validation
+    User
+        S3 Versioning
+        S3 Bucket Policies
+        S3 Replication Setup
+        Logging and Monitoring
+        S3 Storage Classes
+        Data encryption at rest and in transit
 
 AWS Snow Family Overview 
+    AWS Snowball
+        Highly secure protable devices to collect and process data at the edge, and migrate data into and out of AWS
+        Helps migrate up to Petabytes of data
+            Snowball Edge Storage Opt
+            Snowball Edge Compute Opt
 
 AWS Snow Family Hands On 
 
 
 AWS Snowball Edge - Pricing 
+    You pay for device usage and data transfer out of AWS
+    Data transfer IN to Amazon S3 is free
+
+    ON demand
+        Included a one-time service fee per job which includes:
+            10 days of usage for snowball edge storage opt 80TB
+            15 days of usage for snowball edge storage opt 210TB
+            Shipping days not included in time
+            Pay per additional days
+    Commited Upfront
+        Pay in advance for monthly, 1yr and 3yr of usage (edge computing)
+        Up to 62% discounted pricing
+
 
 Storage Gateway Overview 
+    Hybrid Cloud for storage
+        AWS is pushing for "hybrid cloud"
+            Part of your infr is on-premises
+            Part of your infr is on the cloud
+        This can be due to 
+            Long cloud migrations
+            Security req
+            Compliance req
+            IT strategy
+        S3 is a proprietary storage technology (unlike EFS/NFS) so how do you expose the S3 data on-premises
+        AWS Storage Gateway!
+    
+    AWS Storage Cloud Native Options
+        Block
+            Amazon EBS
+            EC2 Instance Store
+        File
+            Amazon EFS
+        Object
+            Amazon S3
 
+    AWS Storage Gateway
+        Bridge between on-premises data and cloud data in S3
+        Hybrid storage service to allow on-prem to seamlessly use the AWS Cloud
+        Use cases: disaster recovery, backup and restore, tiered storage
+
+        Types of Storage gateway
+            File Gateway
+            Volume Gateway
+            Tape Gateway
+        No need to know the types at the exam
+
+        [Files, Volumes, Tapes] ----> AWS Storage Gateway ----> [Amazon EBS, S3, Glacier]
 
 S3 Summary 
 
