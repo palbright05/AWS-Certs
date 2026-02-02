@@ -1,0 +1,62 @@
+    Section 8 Amazon S3
+
+S3 Overview
+    Section Introduction
+        Amazon S3 is one of the main building blocks of AWS
+        Advertised as "infinetly scaling" storage
+        Many websites use Amazon S3 as backbone
+        Many AWS services use S3 as an integration as well
+    Amazon S3 Use cases (Nasdaq and Sysco)
+        Backup and storage
+        Disaster Recovery
+        Archive 
+        Hybrid Cloud Storage
+        Application hosting 
+        Media hosting 
+        Data lakes and big data analytics
+        Software delivery
+        Static website
+    Amazon S3 - Buckets
+        
+S3 Hands on
+
+S3 Security: Bucket Policy 
+
+S3 Security: Bucket Policy Hands On 
+
+S3 Website Overview 
+
+
+S3 Versioning Hands On 
+
+S3 Replication Overview 
+
+S3 Replication Hands On
+
+3 Storage Classes Overview 
+
+S3 Storage Classes Hands On 
+
+
+S3 Express One Zone
+
+S3 Encryption 
+
+IAM Access Analyzer for S3
+
+
+Shared Responsibility Model for S3
+
+
+AWS Snow Family Overview 
+
+AWS Snow Family Hands On 
+
+
+AWS Snowball Edge - Pricing 
+
+Storage Gateway Overview 
+
+
+S3 Summary 
+
