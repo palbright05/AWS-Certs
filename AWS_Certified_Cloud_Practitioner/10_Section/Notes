@@ -1,0 +1,140 @@
+    Section 10 Notes Other Compute Services 
+
+What is Docker
+    Docker
+        Docker is a software development platform to deploy apps
+        Apps are packaged in containers that can be run on any OS
+        Apps run the same regardless of where theyre run
+            Any machine
+            No compatability issues
+            Less work
+            Easier to maintian and deploy
+            Works with any language any OS any technology
+        Scale containers up and down very quickly 
+
+    Docker on an OS
+        Docker running Java
+        Docker running NodeJS, MySQL
+        All of these run on server (EC2 Instance)
+
+    Where docker images are stored
+        Docker images are stored in Docker Repositories
+        Public: Docker Hub https://hub.docker.com
+            Find base images for many technologies or OS
+            Ubuntu
+            MySQL
+            NodeJS, Java
+        Private: Amazon ECR (Elastic Container Registry)
+
+    Docker versus Virtual Machines
+        Docker is "sort of" a virtualization technology but not exactly
+        Resources are shared with the host -> many containers on one server
+
+    
+ECS Fargate & ECR Overview
+    ECS
+        ECS = Elastic Container Service 
+        Launch Docker containers on AWS
+        You must provision & maintain the infrastructure (EC2 instance)
+        AWS takes care of starting / stopping containers
+        Has the integration with the Application Load Balancer
+
+    Fargate
+        Launch Docker containers on AWS
+        You dont provision the infrastructure (no EC2 instance to manage)
+        Serverless offering 
+        AWS jsut runs containers for you based on the CPU / RAM you need
+        
+    ECR
+        Elastic Container Registry
+        Private Docker Registry on AWS
+        This is where you store Docker images so they can be run by ECS or Fargate
+
+Amazon EKS
+    EKS = Elastic Kubernetes Service
+    Allows you to launch managed Kubernetes clusters on AWS
+    Kubernetes is an open source system for management, deployment and scaling of containerized apps (docker)
+    
+    Containers can be hosted on:
+        EC2 instances
+        Fargate(serverless)
+    
+    Kubernetes is cloud-agnostic
+        Can be used in any cloud - Azure GCP
+
+Severless Introduction 
+    What is serverless
+        Serverless is a new paradigm in which the developers dont have to manage servers anymore
+        They just deploy code 
+        They just deploy functions
+        Initially ... Serverless == FaaS (Function as a Service)
+        Serverless was pioneered by AWS Lambda but now also includes anything thats managed: database, messaging, storage
+        Serverless does not mean there are no servers..
+            It means you dont manage / provision / see them
+
+    So far in this course: (Severless)
+        Amazon S3
+        DynamoDB
+        Fargate
+        Lambda
+
+Lambda Overview
+
+    Why AWS Lambda
+        EC2
+            Virtual servers in the cloud
+            Limited by RAM and CPU
+            Continously running
+        Amazon Lambda
+            Virtual functions - no servers to manage
+            Limited by time - short executions
+            Run on-demand
+            Scaling is automated  
+
+    Benefits of AWS Lambda
+        Easy Pricing:
+            Pay per request and compute time
+            Free tier of 1Mil AWS lambda requests and 400k GBs of compute time
+        Integrated with teh whole AWS suite of services
+        Event-driven: functions get invoked by AWS when needed
+        Integrated with many programming languages
+        Easy monitoring through AWS CloudWatch
+        Easy to get more resources per functions (up to 10GB of RAM)
+        Increasing RAM will also imrpove CPU and network
+
+    AWS Lambda language support
+        Node.js
+        Python
+        Java
+        C#
+        Ruby
+        Custom Runtime API (community support)
+
+        Lambda Container Image
+            The container image must implement the Lambda Runtime API
+            ECS / Fargate is preferred for running arbitrary Docker Images
+    
+    Cron -> schedule (hour/day)
+        Use CloudWatch to trigger events every hour
+    
+    Pricing
+        very cheap
+        based on calls and duration
+
+Lambda Hands On
+
+
+
+API Gateway Overview
+
+
+
+Lightsail Overview
+
+
+
+Lightsail Hands On
+
+
+
+Other Compute Summary
