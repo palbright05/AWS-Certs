@@ -126,10 +126,44 @@ Lambda Hands On
 
 
 API Gateway Overview
+    Ex: Building a serverless API
 
+    Client <--REST API--> API Gateway <--Proxy Request---> Lambda <--CRUD---> DynamoDB
 
+    Fully managed service for developers to easily create, publish , maintain, monitor and secure APIs
+    Serverless and scalable
+    Supports RESTful APIs and WebSocket APIs
+    Support for security, user authentication, API throttling, API keys, monitoring
+
+Batch Overview
+    Fully managed batch processing at any scale
+    Efficiently run 100k of computing batch jobs on AWS
+    A "batch job" is a job with a start and end  (not continuous)
+    Batch will dynamically launch EC2 instances or Spot instances
+    AWS Batch provisions the right amount of compute / memory
+    You submit or schedule batch jobs and AWS Batch does the rest
+    Batch jobs are defined as Docker images and run on ECS
+    Helpful for cost optimizations and focusing less on the infrastructure
+
+    Lambda vs Batch
+        Lambda
+            Time limit
+            Limited runtimes
+            limited temporary disk space
+            Serverless
+        Batch
+            No time limit
+            Any runtime as long as its packaged as a Docker image
+            Rely on EBS / instance store for disk space
+            Relies on EC2 (can be managed by AWS)
 
 Lightsail Overview
+    Virtual servers, storage, database, and networking
+    Low and predictable pricing
+    Simpler alternative to using EC2 RDS ELB EBS Route 53
+    Great for people with little cloud experience
+    Can setup notifications and monitoring of your Lightsail resources
+    No auto-scaling, limited AWS integrations
 
 
 
@@ -138,3 +172,21 @@ Lightsail Hands On
 
 
 Other Compute Summary
+    Compute Summary
+        Docker: container technology to run applications
+        ECS: Docker containers on EC2 instances
+        Fargate:
+            Run Docker containers without provisioning the infra
+            Serverless offering  (no EC2 instance)
+        ECR: Private Docker Images Repository
+        Batch: run batch jobs on AWS across managed EC2 instances
+        Lightsail: predictable & low pricing for simple application & DB stacks
+
+    Lambda Summary
+        Lambda is Serverless, Function  as a Service, seamless scaling, reactive 
+        Lambda Billing:
+            By the time run x by teh RAM provisioned
+            By the number of invocations
+        Language support: many programming languages except (arbitrary) Docker
+        Invocation time: upt to 15 minutes
+        API Gateway: expose Lambda functions as HTTP API
